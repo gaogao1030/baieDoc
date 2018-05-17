@@ -46,38 +46,10 @@ post api/v1/users/my/profile
   error_code: number // 错误代码
 }
 ```
-
----
-
-### 获取用户当前购买的套餐
-#### URL
-get api/v1/users/my/purchase\_plan/current
-
-#### 请求参数
-| 参数       | 必选 | 类型   | 说明 |
-| --------- | ---- | ------ | ----|
-| token   | true | string |  Token令牌 |
-
-#### 返回结果
-```
-{
-  id: number, // 套餐id
-  name: string, // 套餐名称
-  desc: string, // 套餐描述
-  price: number, // 套餐价格
-  duration: number, // 套餐期限
-  expired_date: datetime, // 会员到期时间
-  is_expired: boolean, // 会员是否过期
-  brokerage_ratio: number, // 佣金比例
-  feedback_days: number, // 回馈天数
-  created_at: datetime, // 该套餐购买时间
-  error_code: number // 错误代码
-}
-```
  
 ---
 
-### 获取通过该用户分享的购买链接用户购买套餐的列表
+### 获取其他用户通过该用户分享的文章链接购买套餐的列表以及回馈佣金及天数
 #### URL
 get api/v1/users/my/shared\_purchase\_plans/
 
@@ -93,10 +65,14 @@ get api/v1/users/my/shared\_purchase\_plans/
 {
   list: [
     {
+      id: number, // 套餐id
       name: string, // 套餐名称
       desc: string, // 套餐描述
       price: number, // 套餐价格
-      purchase_user_id: number // 购买用户id
+      brokerage_get: number, // 获赠回馈佣金
+      feedback_days_get: number, // 获赠回馈天数
+      purchase_user_id: number, // 购买用户id
+      purchase_user_name: string, // 购买用户昵称
       created_at: datetime // 该套餐购买时间
     },
     ...,
@@ -108,52 +84,8 @@ get api/v1/users/my/shared\_purchase\_plans/
 }
 ```
 
-#### URL
-get api/v1/users/my/shared\_purchase\_plans/:plan\_id
-
-#### 请求参数
-| 参数       | 必选 | 类型   | 说明 |
-| --------- | ---- | ------ | ----|
-| token | true | string | Token令牌 |
-| plan\_id | true | string | 套餐id |
-
-#### 返回结果
-```
-{
-  id: number, // 套餐id
-  name: string, // 套餐名称
-  desc: string, // 套餐描述
-  price: number, // 套餐价格
-  duration: number, // 套餐期限
-  expired_date: datetime, // 会员到期时间
-  brokerage_ratio: number, // 佣金比例
-  feedback_days: number, // 回馈天数
-  purchase_user_id: number, // 购买用户id
-  created_at: datetime, // 该套餐购买时间
-  error_code: number // 错误代码
-}
-```
-
 ---
-### 获取用户余额
-#### URL
-get api/v1/users/my/wallet/balance
 
-#### 请求参数
-| 参数       | 必选 | 类型   | 说明 |
-| --------- | ---- | ------ | ----|
-| token | true | string | Token令牌 |
-
-
-#### 返回结果
-```
-{
-  balance: number, // 余额
-  error_code: number // 错误代码
-}
-```
-
----
 ### 获取用户交易记录
 #### URL
 get api/v1/users/my/wallet/transaction\_records
@@ -184,18 +116,19 @@ get api/v1/users/my/wallet/transaction\_records
 
 ```
 #### URL
-get api/v1/users/my/wallet/transaction\_records/:record\_id
+get api/v1/users/my/wallet/transaction\_records/:id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string | Token令牌 |
-| record\_id | true | string | Token令牌 |
+| id | true | string | 记录id |
 
 #### 返回结果
 ```
 {
   id: number, // 交易记录id
+  balance: number, // 余额
   transaction_amount: number, // 交易金额
   operation_type: string, // 操作类型
   created_time: datetime, // 交易时间
