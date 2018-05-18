@@ -30,10 +30,13 @@ get api/v1/plans
 
 ### 获取会员套餐详情
 #### URL
-get api/v1/plans/:id
+get api/v1/plans/:plan\_id
 
 #### 请求参数
-无
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | Token令牌 |
+| plan\_id | true | number | 套餐id |
 
 #### 返回结果
 ```
@@ -58,9 +61,9 @@ post api/v1/plans/purchase
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string | Token令牌 |
-| plan_id | true | number | 套餐id |
-| article_id | true | number | 推广文章id |
-| pay_type| false | number | 支付方式，不传的话应有个默认值。例如 wechat |
+| plan\_id | true | number | 套餐id |
+| article\_id | true | number | 推广文章id |
+| pay\_type| false | number | 支付方式，不传的话应有个默认值。例如 wechat |
 
 #### 返回结果
 ```
