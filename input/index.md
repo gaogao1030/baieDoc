@@ -14,4 +14,4 @@
 
 - [套餐相关](./plan.html)
 
-- [套餐相关](./content.html)
+- [内容相关](./content.html)
