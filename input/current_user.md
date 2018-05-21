@@ -37,7 +37,6 @@ post api/v1/users/my/profile
 | academic\_tittle | false | string | 职称 |
 | nickname | false | string| 昵称 |
 | avatar | false | string | 头像 |
-| phone | false| string | 手机号 |
 
 #### 返回结果
 ```
