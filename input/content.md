@@ -65,7 +65,8 @@ get api/v1/articles/:article\_id
 			name: // tag 标签名
       },
       ...,
-      ...],
+      ...
+    ],
     error_code: string // 错误代码
 }
 ```
@@ -87,7 +88,7 @@ post api/v1/articles
 ```
 {
 	message: string // 消息
-   error_code: string // 错误代码
+	error_code: string // 错误代码
 }
 ```
 
@@ -105,7 +106,7 @@ put api/v1/articles/:article\_id
 ```
 {
 	message: string // 消息
-   error_code: string // 错误代码
+	error_code: string // 错误代码
 }
 ```
 
@@ -123,7 +124,7 @@ delete api/v1/articles/:article\_id
 ```
 {
 	message: string // 消息
-   error_code: string // 错误代码
+	error_code: string // 错误代码
 }
 ```
 
@@ -141,7 +142,7 @@ delete api/v1/articles/
 ```
 {
 	message: string // 消息
-   error_code: string // 错误代码
+	error_code: string // 错误代码
 }
 ```
 
@@ -160,14 +161,14 @@ get api/v1/cases
 #### 返回结果
 ```
 {
-  list: [
-    {
-	   id: number // 案例id
-  	 },
-    ...,
-    ...
-  ],
-  error_code: string // 错误代码
+	list: [
+	{
+		id: number // 案例id
+	},
+	...,
+	...
+	],
+	error_code: string // 错误代码
 }
 ```
 ### 获取案例详情
@@ -183,7 +184,7 @@ get api/v1/cases/:case\_id
 ```
 {
 	id: number, // 案例id
-   error_code: string // 错误代码
+	error_code: string // 错误代码
 }
 ```
 
@@ -191,7 +192,7 @@ get api/v1/cases/:case\_id
 ---
 ### 获取标签
 #### URL
-post api/v1/tags
+get api/v1/tags
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -200,11 +201,11 @@ post api/v1/tags
 
 #### 返回结果
 ```
-{   
+{
 	type: number // 标签类型
-   name: string // 标签名称
-   weight: number // 权重
-   error_code: number // 错误代码
+	name: string // 标签名称
+	weight: number // 权重
+	error_code: number // 错误代码
 }
 ```
 ---
