@@ -2,7 +2,7 @@
 
 ### 获取我的单页文章库列表
 #### URL
-get api/v1/users/my/article\_libaries 
+get api/v1/micro_sp/my/article\_libaries 
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -31,7 +31,7 @@ get api/v1/users/my/article\_libaries
 
 ### 获取微单页文章库详情
 #### URL
-get api/v1/users/my/article\_libaries/:id/articles/
+get api/v1/micro_sp/my/article\_libaries/:id/articles/
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -71,7 +71,7 @@ get api/v1/users/my/article\_libaries/:id/articles/
 
 ### 获取微单页文章库文章详情
 #### URL
-get api/v1/users/my/article\_libaries/:id/articles/:article\_id
+get api/v1/micro_sp/my/article\_libaries/:id/articles/:article\_id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -114,7 +114,7 @@ get api/v1/users/my/article\_libaries/:id/articles/:article\_id
 
 ### 更新微单页文章库文章
 #### URL
-put api/v1/users/my/article\_libaries/:id/articles/:article\_id
+put api/v1/micro_sp/my/article\_libaries/:id/articles/:article\_id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -142,7 +142,7 @@ put api/v1/users/my/article\_libaries/:id/articles/:article\_id
 
 ### 删除微单页文章库文章
 #### URL
-delete api/v1/users/my/article\_libaries/:id/articles/:article\_id
+delete api/v1/micro_sp/my/article\_libaries/:id/articles/:article\_id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -164,7 +164,7 @@ delete api/v1/users/my/article\_libaries/:id/articles/:article\_id
 
 ### 创建微单页文章库
 #### URL
-post api/v1/users/my/article\_libaries 
+post api/v1/micro_sp/my/article\_libaries 
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -183,7 +183,7 @@ post api/v1/users/my/article\_libaries
 
 ### 更新微单页文章库
 #### URL
-put api/v1/users/my/article\_libaries/:id
+put api/v1/micro_sp/my/article\_libaries/:id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -204,7 +204,7 @@ put api/v1/users/my/article\_libaries/:id
 
 ### 删除微单页文章库
 #### URL
-delete api/v1/users/my/article\_libaries
+delete api/v1/micro_sp/my/article\_libaries
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -227,7 +227,7 @@ delete api/v1/users/my/article\_libaries
 
 ### 获取我的案例库列表
 #### URL
-get api/v1/users/my/case\_libaries
+get api/v1/micro_sp/my/case\_libaries
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -257,7 +257,7 @@ get api/v1/users/my/case\_libaries
 ---
 ### 获取我的案例库详情
 #### URL
-get api/v1/users/my/case\_libaries/:id/cases
+get api/v1/micro_sp/my/case\_libaries/:id/cases
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -301,7 +301,7 @@ get api/v1/users/my/case\_libaries/:id/cases
 ---
 ### 删除我的案例库
 #### URL
-delete api/v1/users/my/case\_libaries
+delete api/v1/micro_sp/my/case\_libaries
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -322,7 +322,7 @@ delete api/v1/users/my/case\_libaries
 ---
 ### 创建我的案例
 #### URL
-post api/v1/users/my/case\_libaries/:id/cases
+post api/v1/micro_sp/my/case\_libaries/:id/cases
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -334,13 +334,17 @@ post api/v1/users/my/case\_libaries/:id/cases
  
 #### 返回结果
 ```
+{
+	message: string,
+	error_code: string // 错误代码
+}
 ```
 
 ---
 
 ### 更新我的案例
 #### URL
-put api/v1/users/my/case\_libaries/:id/cases/:case_id
+put api/v1/micro_sp/my/case\_libaries/:id/cases/:case_id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -361,7 +365,7 @@ put api/v1/users/my/case\_libaries/:id/cases/:case_id
 ---
 ### 删除我的案例
 #### URL
-delete api/v1/users/my/case\_libaries/:id/cases
+delete api/v1/micro_sp/my/case\_libaries/:id/cases
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -385,13 +389,13 @@ delete api/v1/users/my/case\_libaries/:id/cases
 
 ### 获取我的组件列表
 #### URL
-get api/v1/users/my/components
+get api/v1/micro_sp/my/components
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
-| article_id | false | number | 所属文章 id |
+| type | false | number | 组件类型枚举 [text, image, link, phone, qrcode, advertisement, case] |
 | page | false | boolean | 页码 |
 | per_page | false | boolean | 页数 |
 
@@ -414,7 +418,7 @@ get api/v1/users/my/components
 ---
 ### 创建我的组件
 #### URL
-post api/v1/users/my/components
+post api/v1/micro_sp/my/components
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -437,7 +441,7 @@ post api/v1/users/my/components
 
 ### 获取我的组件详情
 #### URL
-get api/v1/users/my/components/:id
+get api/v1/micro_sp/my/components/:id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -459,7 +463,7 @@ get api/v1/users/my/components/:id
 
 ### 更新我的组件
 #### URL
-put api/v1/users/my/components/:id
+put api/v1/micro_sp/my/components/:id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
@@ -480,7 +484,7 @@ put api/v1/users/my/components/:id
 
 ### 删除我的组件
 #### URL
-delete api/v1/users/my/components/:id
+delete api/v1/micro_sp/my/components/:id
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
