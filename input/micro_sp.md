@@ -57,7 +57,7 @@ get api/v1/micro_sp/my/article\_libaries/:id/articles/
 			status: string, // 状态枚举 [draft, publish], 文章只能处于草稿或发布状态
 			read_count: number // 阅读数
 			repost_count: number // 转载数
-			repost_article_id: number, // 转载文章 id
+			is_repost: boolean // 是否转载
 			created_at: datetime, //创建时间
 			updated_at: datetime, //修改时间
 		},
@@ -123,6 +123,7 @@ get api/v1/micro_sp/my/article\_libaries/:id/articles/:article\_id
 	is_top: boolean, // 是否置顶
 	is_display_copyright: boolean, // 是否显示版权声明
 	is_display_publisher: boolean, // 是否显示发布人信息
+	is_repost: boolean, // 是否转载
 	publisher_info: string, // 发布人信息
 	read_count: number // 阅读数
 	repost_count: number // 转载数
