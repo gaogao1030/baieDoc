@@ -37,8 +37,8 @@ get api/v1/micro_sp/my/article\_libaries/:id/articles/
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
-| id | true | string | 文章库 id |
-| filter_status | true | string | 文章所处状态, [draft, publish, all]|
+| id | true | string | 文章库 id, id 为 0 是查询全部文章 |
+| filter | true | string | 过滤器, 枚举 [repost, draft, publish, all]|
 | page | false | boolean | 页码 |
 | per_page | false | boolean | 页数 |
 
@@ -54,7 +54,7 @@ get api/v1/micro_sp/my/article\_libaries/:id/articles/
 			title: string, // 文章标题
 			cover: string, // 文章封面图
 			is_top: boolean, // 是否置顶
-			is_display_copyright: boolean, // 是否显示版权声明
+			status: string, // 状态枚举 [draft, publish], 文章只能处于草稿或发布状态
 			read_count: number // 阅读数
 			repost_count: number // 转载数
 			repost_article_id: number, // 转载文章 id
@@ -296,7 +296,7 @@ get api/v1/micro_sp/my/case\_libaries/:id/cases
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
-| id | true | number | 案例库 id |
+| id | true | number | 案例库 id, id 为 0，取出全部案例 |
 | page | false | boolean | 页码 |
 | per_page | false | boolean | 页数 |
 
@@ -495,7 +495,7 @@ put api/v1/micro_sp/my/components/:id
 
 #### 返回结果
 ```
-{
+{ 
 	message: string,
 	error_code: string // 错误代码
 }
