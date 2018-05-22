@@ -90,6 +90,7 @@ get api/v1/cases
 	list: [
 	{
 		id: number // 案例id
+		koubei_case_id: number // 口碑案例id
 	},
 	...,
 	...
@@ -110,6 +111,7 @@ get api/v1/cases/:case\_id
 ```
 {
 	id: number, // 案例id
+	koubei_case_id: number // 口碑案例id
 	error_code: string // 错误代码
 }
 ```
