@@ -39,11 +39,13 @@ get api/v1/users/my/article\_libaries/:id/articles/
 | token | true | string | 令牌 Token |
 | id | true | string | 文章库 id |
 | filter_status | true | string | 文章所处状态, [draft, publish, all]|
+| page | false | boolean | 页码 |
+| per_page | false | boolean | 页数 |
 
 #### 返回结果
 ```
 {	
-	id: number // 文章库id
+	id: number // 文章库 id
 	name: // 文章库名称
 	count: // 该文章库下所属文章总数
 	list: [
@@ -81,6 +83,7 @@ get api/v1/users/my/article\_libaries/:id/articles/:article\_id
 ```
 {	
 	id: number, // 文章 id
+	article_libary_id: 文章库 id
 	title: string, // 文章标题
 	share_title: string, // 分享标题
 	cover: string, // 文章封面图
@@ -118,14 +121,15 @@ put api/v1/users/my/article\_libaries/:id/articles/:article\_id
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
 | id | true | string | 文章库 id |
-| article_id| true| number | 文章 id |
+| article\_id| true| number | 文章 id |
 | title | false | string | 文章标题 |
-| share_title | false| string | 文章分享标题 |
+| share\_title | false| string | 文章分享标题 |
 | cover | false| string | 封面图 url |
-| item_ids | false | array | 组件顺序， 比如 [5,3,1]， 组件 id 为 5 排队首，3 排其次， 1 排队末 |
-| publisher_info | false | string | 发布人信息 |
-| is_display_copyright | false| boolean | 是否显示版权声明 |
-| is_display_publisher | false | boolean | 是否显示发布人信息 |
+| item\_ids | false | array | 组件顺序， 比如 [5,3,1]， 组件 id 为 5 排队首，3 排其次， 1 排队末 |
+| publisher\_info | false | string | 发布人信息 |
+| is\_display\_copyright | false| boolean | 是否显示版权声明 |
+| is\_display\_publisher | false | boolean | 是否显示发布人信息 |
+| article\_libary\_id| false| boolean| 文章库 id, 用来移动文章到文章库|
  
 #### 返回结果
 ```
@@ -145,8 +149,8 @@ delete api/v1/users/my/article\_libaries/:id/articles/:article\_id
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
 | id | true | string | 文章库 id |
-| article_id | false | number | 文章 id |
-| article_ids| false | array | 文章 id 数组，用于批量删除。 |
+| article\_id | false | number | 文章 id |
+| article\_ids| false | array | 文章 id 数组，用于批量删除。 |
  
 #### 返回结果
 ```
@@ -221,7 +225,7 @@ delete api/v1/users/my/article\_libaries
 
 ## 微单页案例资源库
 
-### 获取我的单页文章库列表
+### 获取我的案例库列表
 #### URL
 get api/v1/users/my/case\_libaries
 
@@ -229,6 +233,8 @@ get api/v1/users/my/case\_libaries
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
+| page | false | boolean | 页码 |
+| per_page | false | boolean | 页数 |
 
 #### 返回结果
 ```
@@ -236,13 +242,139 @@ get api/v1/users/my/case\_libaries
 	count: number // 所有案例总计数
 	lists: [
 		{
-			id: number //案例库 id
-			name: string // 库名称
+			id: number // 案例库 id
+			name: string // 案例库名称
 			count: number // 该案例库所属案例总计数
 		},
 		...,
 		...
 	],
+	current_page: number // 当前页码
+	error_code: string // 错误代码
+}
+```
+
+---
+### 获取我的案例库详情
+#### URL
+get api/v1/users/my/case\_libaries/:id/cases
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | true | number | 案例库 id |
+| page | false | boolean | 页码 |
+| per_page | false | boolean | 页数 |
+
+ 
+#### 返回结果
+```
+{
+	id: number // 案例库 id
+	name: string // 案例库名称
+	count: number // 该案例总计数	
+	items: [
+		{
+			id: number //案例 id
+			koubei_case_id: number // 口碑案例id
+			cover: string, // 案例图片封面
+			nick_name: string // 案例人昵称
+			tags: [
+				{
+					name: string,		
+				},
+				...,
+				...
+			],
+			lose_weight: number // 减重
+			before_weight: number // 减重前体重
+			after_weight: number // 减重后体重
+		},
+		...,
+		...
+	],
+	error_code: string // 错误代码
+}
+```
+
+---
+### 删除我的案例库
+#### URL
+delete api/v1/users/my/case\_libaries
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | false | number | 案例库 id |
+| ids | false | array | 案例库 id 集合 |
+
+ 
+#### 返回结果
+```
+{
+	message: string,
+	error_code: string // 错误代码
+}
+```
+
+---
+### 创建我的案例
+#### URL
+post api/v1/users/my/case\_libaries/:id/cases
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | true | number | 案例库 id |
+| koubei\_case\_id | true | number| 口碑案例 id |
+
+ 
+#### 返回结果
+```
+```
+
+---
+
+### 更新我的案例
+#### URL
+put api/v1/users/my/case\_libaries/:id/cases/:case_id
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | true | number | 案例库 id |
+| case_id | true | number | 案例 id |
+| case_libary_id| false | number | 更新所属的案例库所使用的 id|
+ 
+#### 返回结果
+```
+{
+	message: string,
+	error_code: string // 错误代码
+}
+```
+
+---
+### 删除我的案例
+#### URL
+delete api/v1/users/my/case\_libaries/:id/cases
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | true | number | 案例库 id |
+| case_id | false | number | 案例 id |
+| case_ids | false | array | 案例 id 集合， 批量删除 |
+ 
+#### 返回结果
+```
+{
+	message: string,
 	error_code: string // 错误代码
 }
 ```
@@ -260,8 +392,8 @@ get api/v1/users/my/components
 | --------- | ---- | ------ | ----|
 | token | true | string | 令牌 Token |
 | article_id | false | number | 所属文章 id |
-| page | false | number | 页码 |
-| per_page | false | number | 每页多少个 |
+| page | false | boolean | 页码 |
+| per_page | false | boolean | 页数 |
 
 #### 返回结果
 ```
