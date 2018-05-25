@@ -360,6 +360,83 @@ delete api/v1/micro_sp/my/case\_libaries/:id/cases
 
 ---
 
+## 文章组件部分
+
+### 创建文章组件
+#### URL
+post api/v1/micro_sp/my/articles/:id/components
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| type | false | number | 组件类型枚举 [text, image, link, phone, qrcode, advertisement, case] |
+| content | false | string | 组件内容 |
+
+#### 返回结果
+```
+{
+	id: number // 组件 id
+	message: string
+	error_code: string // 错误代码
+}
+```
+
+### 更新文章组件
+#### URL
+put api/v1/micro_sp/my/articles/:id/components/:component_id
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | true| number | 文章 id |
+| component_id | true| number | 组件 id|
+| content | false | string | 组件内容 |
+
+#### 返回结果
+```
+{
+	items: [ 
+		{
+			id: number, // 组件 id
+			type: string, // 组件类型枚举 [text, image, link, phone, qrcode, advertisement, case]
+			content: string // 返回自定的 json 字符串
+		},
+		...,
+		...
+	],
+	error_code: string // 错误代码
+}
+```
+
+### 删除文章组件
+#### URL
+delete api/v1/micro_sp/my/articles/:id/components
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | 令牌 Token |
+| id | true| number | 文章 id |
+| component_id | true| number | 组件 id|
+
+#### 返回结果
+```
+{
+	items: [ 
+		{
+			id: number, // 组件 id
+			type: string, // 组件类型枚举 [text, image, link, phone, qrcode, advertisement, case]
+			content: string // 返回自定的 json 字符串
+		},
+		...,
+		...
+	],
+	error_code: string // 错误代码
+}
+```
+
 ## 组件部分
 
 ### 获取我的组件列表
