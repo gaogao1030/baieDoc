@@ -8,6 +8,7 @@ get api/v1/my_card/
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string |  令牌 token |
+| user_id | false | string |  用户id, 如果有的话则覆盖 token, 以该用户我的名片的信息为主 |
 
 #### 返回结果
 ```
@@ -40,8 +41,10 @@ get api/v1/my\_card/best\_articles
 | 参数       | 必选 | 类型   | 说明 |
 | --------- | ---- | ------ | ----|
 | token | true | string |  令牌 token |
+| user_id | false | string |  用户id, 如果有的话则覆盖 token, 以该用户的精选文章为主 |
 | page | false | number | 第几页 |
 | per_page| false | number | 每页多少个 |
+
 
 #### 返回结果
 ```
@@ -78,6 +81,7 @@ put api/v1/my_card/
 | phone | false | string | 手机联系方式 |
 | introduction | false | string | 个人签名 |
 | product_and_serveice | false | string | 产品及服务 |
+| theme_id | false | number | 主题 id |
 
 #### 返回结果
 ```
