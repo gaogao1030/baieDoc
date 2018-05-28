@@ -14,7 +14,6 @@ get api/v1/my_card/
 ```
 {
 	id: number // 令牌 Token
-	cover: string // 封面背景 url
 	avatar: string // 头像
 	name: string // 姓名
 	academic_title: string // 职称

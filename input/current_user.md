@@ -21,7 +21,7 @@ get api/v1/users/my/profile
   phone: string, // 手机号
   balance: number, // 余额
   error_code: number, // 错误代码
-  vipExpiry: date, //会员到期时间
+  vipExpiry: datetime, //会员到期时间
   isVip: boolean //是否VIP
 }
 ```
@@ -153,6 +153,26 @@ post api/v1/users/my/identification/withdraw\_cash
 | card\_number | true | string | 银行卡号 |
 | phone | true | string | 银行预留手机号 |
 
+
+#### 返回结果
+```
+{
+  message: string, // 消息
+  error_code: number // 错误代码
+}
+```
+
+---
+
+### 用户提现接口
+#### URL
+post api/v1/users/my/withdraw_cash
+
+#### 请求参数
+| 参数       | 必选 | 类型   | 说明 |
+| --------- | ---- | ------ | ----|
+| token | true | string | Token令牌 |
+| cash | true | number | 提取金额 |
 
 #### 返回结果
 ```
