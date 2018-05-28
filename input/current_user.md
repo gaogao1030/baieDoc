@@ -20,7 +20,9 @@ get api/v1/users/my/profile
   avatar: string, // 用户头像URL
   phone: string, // 手机号
   balance: number, // 余额
-  error_code: number // 错误代码
+  error_code: number, // 错误代码
+  vipExpiry: date, //会员到期时间
+  isVip: boolean //是否VIP
 }
 ```
 
