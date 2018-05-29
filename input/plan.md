@@ -20,6 +20,7 @@ get api/v1/plans
       commamount: number, // 回馈佣金
       backdays: number, // 回馈天数
       subPorduct: string // 附属商品
+      cover: string // 套餐封面的 URL
     },
     ...,
     ...
