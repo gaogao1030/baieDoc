@@ -14,12 +14,12 @@ get api/v1/plans
     {
       id: number, // 套餐id
       name: string, // 套餐名称
-      desc: string, // 套餐描述
+      vipdesc: string, // 套餐描述
       price: number, // 套餐价格
-      duration: number, // 套餐期限
-      brokerage_ratio: number, // 佣金比例
-      feedback_days: number, // 回馈天数
-      created_at: datetime, // 该套餐购买时间
+      deadline: number, // 套餐期限
+      commamount: number, // 回馈佣金
+      backdays: number, // 回馈天数
+      subPorduct: string // 附属商品
     },
     ...,
     ...
