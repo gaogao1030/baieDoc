@@ -21,7 +21,7 @@ put /api/v1/articles/{id}/read
 
 ### 增加内容中心文章转载数
 #### URL
-put api/v1/users/reset\_password
+put /api/v1/articles/{id}/repost
 
 #### 请求参数
 | 参数       | 必选 | 类型   | 说明 |
