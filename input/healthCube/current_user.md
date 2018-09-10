@@ -21,6 +21,7 @@ get api/v1/users/my/profile
   phone: string, // 手机号
   balance: number, // 余额
   error_code: number, // 错误代码
+  allowReprint : int,//是否允许转载 0、不允许 1、允许 
   vipExpiry: datetime, //会员到期时间
   isVip: boolean //是否VIP
 }
@@ -39,6 +40,7 @@ post api/v1/users/my/profile
 | academic\_tittle | false | string | 职称 |
 | nickname | false | string| 昵称 |
 | avatar | false | string | 头像 |
+|allowReprint| false | Boolean | 是否允许转载|
 
 #### 返回结果
 ```
