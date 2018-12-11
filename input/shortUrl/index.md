@@ -44,7 +44,7 @@
 
 ```
 {
-  shortUrl: 'http://t..com/ad31df' // 短链接
+  shortUrl: 'http://t.yunchuangfu.com/r4b43' // 短链接
   longUrl: 'http://www.bilibili.tv' // 原链接
 }
 ```
