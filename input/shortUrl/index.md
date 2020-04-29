@@ -22,6 +22,12 @@
 
 ## 生成短链接接口
 
+### 环境
+
+测试环境: http://t.yunchuangfu.com
+
+正式环境: http://t.moku.net
+
 #### URL
 
 > [http://t.yunchuangfu.com/api/v1/short_urls](http://t.yunchuangfu.com/api/v1/short_urls)
