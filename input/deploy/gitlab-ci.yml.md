@@ -11,4 +11,6 @@ include:
     file: /k8s-ci-templates/react/review.yaml
   - project: gaogao1030/Kubernetes
     file: /k8s-ci-templates/react/local.yaml
+  - project: gaogao1030/Kubernetes
+    file: /k8s-ci-templates/react/deploy.yaml
 ```

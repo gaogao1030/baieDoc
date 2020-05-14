@@ -4,6 +4,7 @@ image=需填写
 token=需填写
 project_id=需填写
 
+docker pull registry.gitlab.meiguipai.com/gaogao1030/nginx:master
 git fetch --prune
 
 branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
